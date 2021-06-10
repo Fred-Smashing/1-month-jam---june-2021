@@ -1,35 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 
 public class PlayerController : MonoBehaviour
 {
-    private Collider2D _collider;
+    private CompositeCollider2D _collider;
     private Rigidbody2D _body;
+    private Animator _animator;
 
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private float groundRadius = 0.05f;
+    [Header("Physics"), Space]
+    [SerializeField] private Transform raycastPos;
+    [SerializeField] private float raycastDistance = 0.05f;
     [SerializeField] private LayerMask groundLayer;
 
-    private float speed = 6;
-    private float acceleration = 10;
-    private float jumpHeight = 3f;
-    private float jumpRememberBuffer = 0.2f;
-    private float coyoteTime = 0.1f;
+    [Header("Controler"), Space]
+    [SerializeField] private float speed = 3;
+    [SerializeField] private float airSpeed = 3;
+    [SerializeField] private float acceleration = 10;
+    [SerializeField] private float airAcceleration = 5;
+    [SerializeField] private float jumpHeight = 3f;
+    [SerializeField] private float jumpRememberBuffer = 0.2f;
+    [SerializeField] private float coyoteTime = 0.1f;
+
+    private Vector3 defaultScale;
 
     private void Start()
     {
-        _collider = GetComponent<Collider2D>();
+        _collider = GetComponent<CompositeCollider2D>();
         _body = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+
+        defaultScale = transform.localScale;
     }
 
-    public float horizontalInput;
-    public bool jumpInput;
-    public bool jumpRemember;
+    private float horizontalInput;
+    private bool jumpInput;
+    private bool jumpRemember;
     void Update()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
+
+        if (horizontalInput != 0)
+        {
+            _animator.SetBool("running", true);
+
+            if (horizontalInput > 0)
+            {
+                transform.localScale = defaultScale;
+            }
+            else if (horizontalInput < 0)
+            {
+                transform.localScale = new Vector3(-defaultScale.x, defaultScale.y, defaultScale.z);
+            }
+        }
+        else
+        {
+            _animator.SetBool("running", false);
+        }
+
+        _animator.SetBool("inAir", !isGrounded);
 
         jumpInput = Input.GetKeyDown(KeyCode.Space);
 
@@ -51,6 +82,11 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             canJump = true;
+            velocity.x = Mathf.Lerp(velocity.x, speed * horizontalInput, acceleration * Time.deltaTime);
+        }
+        else
+        {
+            velocity.x = Mathf.Lerp(velocity.x, airSpeed * horizontalInput, airAcceleration * Time.deltaTime);
         }
 
         if (jumpRemember)
@@ -66,31 +102,38 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(CoyoteTimer());
         }
 
-        velocity.x = Mathf.Lerp(velocity.x, speed * horizontalInput, acceleration * Time.deltaTime);
+        // Sticky Landing
+        if (isGrounded && !wasGrounded)
+        {
+            velocity.y = 0;
+            velocity.x = velocity.x / 2;
+        }
+
         velocity.y = _body.velocity.y;
         velocity.z = 0;
 
         _body.velocity = velocity;
-
         wasGrounded = isGrounded;
     }
 
     public float calculateJumpForce(float jumpHeight)
     {
-        float force = Mathf.Sqrt((Physics.gravity.y * _body.gravityScale) * -2f * (jumpHeight * 1000));
+        var dist = Vector3.Distance(transform.position, hitpos);
+
+        float force = Mathf.Sqrt((Physics.gravity.y * _body.gravityScale) * -2f * ((jumpHeight + dist) * 1000));
         return force;
     }
 
+    Vector3 hitpos;
     private bool IsGrounded()
     {
-        Collider2D[] collisions = Physics2D.OverlapCircleAll(groundCheck.position, groundRadius, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(raycastPos.position, Vector2.down, raycastDistance, groundLayer);
 
-        foreach (Collider2D collision in collisions)
+        hitpos = hit.point;
+
+        if (hit.collider != null)
         {
-            if (collision.CompareTag("Platforms"))
-            {
-                return true;
-            }
+            return true;
         }
 
         return false;
@@ -112,6 +155,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(new Ray(raycastPos.position, Vector2.down * raycastDistance));
+
+        if (Application.isPlaying)
+        {
+            Gizmos.DrawWireSphere(hitpos, 0.1f);
+        }
+
     }
 }

@@ -152,7 +152,12 @@ ScriptedImporter:
         boneIndex1: 0
         boneIndex2: 0
         boneIndex3: 0
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -3, y: 3}
+      - {x: -3, y: -3}
+      - {x: 3, y: -3}
+      - {x: 3, y: 3}
     indices: 030000000200000001000000010000000000000003000000
     edges:
     - {x: 1, y: 2}
@@ -233,7 +238,12 @@ ScriptedImporter:
         boneIndex1: 0
         boneIndex2: 0
         boneIndex3: 0
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -2.5, y: 5.5}
+      - {x: -2.5, y: -5.5}
+      - {x: 2.5, y: -5.5}
+      - {x: 2.5, y: 5.5}
     indices: 040000000300000002000000010000000000000002000000040000000200000000000000
     edges:
     - {x: 0, y: 1}
@@ -305,7 +315,12 @@ ScriptedImporter:
         boneIndex1: 0
         boneIndex2: 0
         boneIndex3: 0
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -1, y: 4}
+      - {x: -1, y: -4}
+      - {x: 1, y: -4}
+      - {x: 1, y: 4}
     indices: 030000000200000001000000010000000000000003000000
     edges:
     - {x: 0, y: 1}
@@ -376,7 +391,12 @@ ScriptedImporter:
         boneIndex1: 0
         boneIndex2: 0
         boneIndex3: 0
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -1, y: 4}
+      - {x: -1, y: -4}
+      - {x: 1, y: -4}
+      - {x: 1, y: 4}
     indices: 030000000200000001000000010000000000000003000000
     edges:
     - {x: 0, y: 1}
@@ -447,7 +467,12 @@ ScriptedImporter:
         boneIndex1: 0
         boneIndex2: 0
         boneIndex3: 0
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -0.5, y: -3.5}
+      - {x: 0.5, y: -3.5}
+      - {x: 0.5, y: 2.5}
+      - {x: -0.5, y: 2.5}
     indices: 030000000200000001000000010000000000000003000000
     edges:
     - {x: 0, y: 1}
@@ -518,7 +543,12 @@ ScriptedImporter:
         boneIndex1: 0
         boneIndex2: 0
         boneIndex3: 0
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -0.5, y: -3.5}
+      - {x: 0.5, y: -3.5}
+      - {x: 0.5, y: 2.5}
+      - {x: -0.5, y: 2.5}
     indices: 000000000200000001000000020000000000000003000000
     edges:
     - {x: 0, y: 1}
@@ -589,7 +619,12 @@ ScriptedImporter:
         boneIndex1: 0
         boneIndex2: 0
         boneIndex3: 0
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -0.5, y: 2}
+      - {x: -0.5, y: -2}
+      - {x: 0.5, y: -2}
+      - {x: 0.5, y: 2}
     indices: 030000000200000001000000010000000000000003000000
     edges:
     - {x: 0, y: 1}
@@ -660,7 +695,12 @@ ScriptedImporter:
         boneIndex1: 0
         boneIndex2: 0
         boneIndex3: 0
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -0.5, y: 2}
+      - {x: -0.5, y: -2}
+      - {x: 0.5, y: -2}
+      - {x: 0.5, y: 2}
     indices: 030000000200000001000000010000000000000003000000
     edges:
     - {x: 0, y: 1}
