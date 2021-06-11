@@ -42,6 +42,65 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
+        horizontalInput = Mathf.Clamp(horizontalInput, -1, 1);
+
+        jumpInput = Input.GetKeyDown(KeyCode.Space);
+
+        if (jumpInput && canJump)
+        {
+            jumpRemember = true;
+            StartCoroutine(JumpRememberTimer());
+        }
+    }
+
+    [SerializeField] private Vector3 velocity = Vector3.zero;
+    [SerializeField] private bool canJump;
+    [SerializeField] private bool isGrounded;
+    [SerializeField] private bool wasGrounded;
+    private void FixedUpdate()
+    {
+        isGrounded = IsGrounded();
+
+        if (jumpRemember)
+        {
+            _body.AddForce(Vector2.up * calculateJumpForce(jumpHeight));
+            StopCoroutine(CoyoteTimer());
+            canJump = false;
+            jumpRemember = false;
+            isGrounded = false;
+        }
+
+        if (isGrounded)
+        {
+            canJump = true;
+            velocity.x = Mathf.Lerp(velocity.x, speed * horizontalInput, acceleration * Time.deltaTime);
+        }
+        else
+        {
+            velocity.x = Mathf.Lerp(velocity.x, airSpeed * horizontalInput, airAcceleration * Time.deltaTime);
+        }
+
+        // Sticky Landing
+        if (isGrounded && !wasGrounded && horizontalInput == 0)
+        {
+            velocity.y = 0;
+            velocity.x = velocity.x / 2;
+        }
+
+        if (!isGrounded && wasGrounded)
+        {
+            StartCoroutine(CoyoteTimer());
+        }
+
+        velocity.y = _body.velocity.y;
+        velocity.z = 0;
+
+        _body.velocity = velocity;
+        wasGrounded = isGrounded;
+    }
+
+    private void LateUpdate()
+    {
         if (horizontalInput != 0)
         {
             _animator.SetBool("running", true);
@@ -61,66 +120,12 @@ public class PlayerController : MonoBehaviour
         }
 
         _animator.SetBool("inAir", !isGrounded);
-
-        jumpInput = Input.GetKeyDown(KeyCode.Space);
-
-        if (jumpInput && canJump)
-        {
-            jumpRemember = true;
-            StartCoroutine(JumpRememberTimer());
-        }
     }
 
-    [SerializeField] private Vector3 velocity = Vector3.zero;
-    [SerializeField] private bool canJump;
-    [SerializeField] private bool isGrounded;
-    [SerializeField] private bool wasGrounded;
-    private void FixedUpdate()
-    {
-        isGrounded = IsGrounded();
-
-        if (isGrounded)
-        {
-            canJump = true;
-            velocity.x = Mathf.Lerp(velocity.x, speed * horizontalInput, acceleration * Time.deltaTime);
-        }
-        else
-        {
-            velocity.x = Mathf.Lerp(velocity.x, airSpeed * horizontalInput, airAcceleration * Time.deltaTime);
-        }
-
-        if (jumpRemember)
-        {
-            _body.AddForce(Vector2.up * calculateJumpForce(jumpHeight));
-            StopCoroutine(CoyoteTimer());
-            canJump = false;
-            jumpRemember = false;
-        }
-
-        if (!isGrounded && wasGrounded)
-        {
-            StartCoroutine(CoyoteTimer());
-        }
-
-        // Sticky Landing
-        if (isGrounded && !wasGrounded)
-        {
-            velocity.y = 0;
-            velocity.x = velocity.x / 2;
-        }
-
-        velocity.y = _body.velocity.y;
-        velocity.z = 0;
-
-        _body.velocity = velocity;
-        wasGrounded = isGrounded;
-    }
-
+    #region Physics Functions
     public float calculateJumpForce(float jumpHeight)
     {
-        var dist = Vector3.Distance(transform.position, hitpos);
-
-        float force = Mathf.Sqrt((Physics.gravity.y * _body.gravityScale) * -2f * ((jumpHeight + dist) * 1000));
+        float force = Mathf.Sqrt((Physics.gravity.y * _body.gravityScale) * -2 * (jumpHeight * (1000 * _body.mass)));
         return force;
     }
 
@@ -138,7 +143,9 @@ public class PlayerController : MonoBehaviour
 
         return false;
     }
+    #endregion
 
+    #region Coroutines
     private IEnumerator JumpRememberTimer()
     {
         yield return new WaitForSeconds(jumpRememberBuffer);
@@ -152,7 +159,9 @@ public class PlayerController : MonoBehaviour
 
         canJump = false;
     }
+    #endregion
 
+    #region Gizmos Drawing
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -162,6 +171,6 @@ public class PlayerController : MonoBehaviour
         {
             Gizmos.DrawWireSphere(hitpos, 0.1f);
         }
-
     }
+    #endregion
 }
