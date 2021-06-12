@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 defaultScale;
 
-    private void Start()
+    private void Awake()
     {
         _body = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
@@ -62,11 +62,7 @@ public class PlayerController : MonoBehaviour
 
         if (jumpRemember)
         {
-            _body.AddForce(Vector2.up * calculateJumpForce(jumpHeight));
-            StopCoroutine(CoyoteTimer());
-            canJump = false;
-            jumpRemember = false;
-            isGrounded = false;
+            Jump(CalculateJumpForce(jumpHeight));
         }
 
         if (isGrounded)
@@ -79,12 +75,7 @@ public class PlayerController : MonoBehaviour
             velocity.x = Mathf.Lerp(velocity.x, airSpeed * horizontalInput, airAcceleration * Time.deltaTime);
         }
 
-        // Sticky Landing
-        if (isGrounded && !wasGrounded && horizontalInput == 0)
-        {
-            velocity.y = 0;
-            velocity.x = velocity.x / 2;
-        }
+        StickyLanding();
 
         if (!isGrounded && wasGrounded)
         {
@@ -92,18 +83,10 @@ public class PlayerController : MonoBehaviour
         }
 
         velocity.y = _body.velocity.y;
-
-        RaycastHit2D highHit = Physics2D.Raycast(raycastPos.position, Vector2.down, raycastDistance / 2, groundLayer);
-        if (highHit.collider != null)
-        {
-            velocity.y = 5;
-        }
-
         velocity.z = 0;
-
         _body.velocity = velocity;
-        wasGrounded = isGrounded;
 
+        wasGrounded = isGrounded;
         velocityLastFrame = _body.velocity;
     }
 
@@ -131,10 +114,28 @@ public class PlayerController : MonoBehaviour
     }
 
     #region Physics Functions
-    public float calculateJumpForce(float jumpHeight)
+    private void Jump(float jumpForce)
+    {
+        _body.AddForce(Vector2.up * jumpForce);
+        StopCoroutine(CoyoteTimer());
+        canJump = false;
+        jumpRemember = false;
+        isGrounded = false;
+    }
+
+    public float CalculateJumpForce(float jumpHeight)
     {
         float force = Mathf.Sqrt((Physics.gravity.y * _body.gravityScale) * -2 * (jumpHeight * (1000 * _body.mass)));
         return force;
+    }
+
+    private void StickyLanding()
+    {
+        if (isGrounded && !wasGrounded && horizontalInput == 0)
+        {
+            velocity.y = 0;
+            velocity.x = velocity.x / 2;
+        }
     }
 
     Vector3 hitpos;

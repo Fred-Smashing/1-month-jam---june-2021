@@ -795,7 +795,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 0
+  m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &519420032
@@ -6029,9 +6029,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7731564614474091796, guid: 53937b97203a1604e839a653ea2de371, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7866967704466264817, guid: 53937b97203a1604e839a653ea2de371, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7942282181957650567, guid: 53937b97203a1604e839a653ea2de371, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 8159094838548855413, guid: 53937b97203a1604e839a653ea2de371, type: 3}
       propertyPath: m_LocalRotation.w
