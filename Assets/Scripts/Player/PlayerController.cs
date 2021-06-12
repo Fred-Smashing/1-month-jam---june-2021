@@ -6,7 +6,6 @@ using System.Linq;
 
 public class PlayerController : MonoBehaviour
 {
-    private CompositeCollider2D _collider;
     private Rigidbody2D _body;
     private Animator _animator;
 
@@ -28,7 +27,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        _collider = GetComponent<CompositeCollider2D>();
         _body = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
 
@@ -57,6 +55,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool canJump;
     [SerializeField] private bool isGrounded;
     [SerializeField] private bool wasGrounded;
+    [HideInInspector] public Vector2 velocityLastFrame;
     private void FixedUpdate()
     {
         isGrounded = IsGrounded();
@@ -93,10 +92,19 @@ public class PlayerController : MonoBehaviour
         }
 
         velocity.y = _body.velocity.y;
+
+        RaycastHit2D highHit = Physics2D.Raycast(raycastPos.position, Vector2.down, raycastDistance / 2, groundLayer);
+        if (highHit.collider != null)
+        {
+            velocity.y = 5;
+        }
+
         velocity.z = 0;
 
         _body.velocity = velocity;
         wasGrounded = isGrounded;
+
+        velocityLastFrame = _body.velocity;
     }
 
     private void LateUpdate()

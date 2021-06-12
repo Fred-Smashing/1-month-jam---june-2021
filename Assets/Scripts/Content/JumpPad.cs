@@ -7,23 +7,39 @@ public class JumpPad : MonoBehaviour
     [SerializeField] private float padForce = 5f;
     [SerializeField] private Vector2 forceDirection = Vector2.up;
 
-    private List<Collision2D> collisionList = new List<Collision2D>();
+    private List<GameObject> collisionList = new List<GameObject>();
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        var collisionGameObject = collision.gameObject;
+
+        if (collisionGameObject.CompareTag("Player"))
         {
-            Debug.Log("Player Touched Pad");
-            if (!collisionList.Contains(collision))
+            if (!collisionList.Contains(collisionGameObject))
             {
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(forceDirection * padForce, ForceMode2D.Impulse);
-                collisionList.Add(collision);
+                Rigidbody2D affectedBody = collisionGameObject.GetComponent<Rigidbody2D>();
+
+                var momentum = Mathf.Abs(collisionGameObject.GetComponent<PlayerController>().velocityLastFrame.y * 0.52f);
+
+                collisionGameObject.GetComponent<Rigidbody2D>().AddForce(forceDirection * (padForce + momentum), ForceMode2D.Impulse);
+                collisionList.Add(collisionGameObject);
+
+                //Debug.Log(string.Format("Added force to body {0} with a force of {1}", affectedBody, padForce + momentum));
             }
         }
     }
 
     private void FixedUpdate()
     {
+        if (collisionList.Count > 0)
+        {
+            StartCoroutine(clearList());
+        }
+    }
+
+    private IEnumerator clearList()
+    {
+        yield return new WaitForFixedUpdate();
         collisionList.Clear();
     }
 }
