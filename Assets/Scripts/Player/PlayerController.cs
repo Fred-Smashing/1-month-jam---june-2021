@@ -7,6 +7,7 @@ using System.Linq;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _body;
+    private Collider2D _collider;
     private Animator _animator;
 
     [Header("Physics"), Space]
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _body = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<Collider2D>();
         _animator = GetComponent<Animator>();
 
         defaultScale = transform.localScale;
