@@ -4,18 +4,32 @@ using UnityEngine;
 
 public class Bottle : MonoBehaviour
 {
-    Collider2D _collider;
+    private Collider2D _collider;
+    private GameManager _gameManager;
 
     private void Start()
     {
         _collider = GetComponent<Collider2D>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        _gameManager.CompletedLevel();
+    //    }
+    //}
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("WIN!");
+            _gameManager.CompletedLevel();
         }
+    }
+
+    public void SetGameManager(GameManager gameManager)
+    {
+        _gameManager = gameManager;
     }
 }

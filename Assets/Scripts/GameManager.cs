@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private GameManager instance => this;
+
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject levelPrefab;
 
     [SerializeField] private TMPro.TMP_Text timerText;
+
+    [SerializeField] private LargeBottle largeBottle;
+
+    [SerializeField] private GameObject screenOverlay;
 
     private PlayerController currentPlayer = null;
     private LevelData currentLevel;
@@ -17,6 +23,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         StartLevel();
+        largeBottle.gameObject.SetActive(false);
     }
 
     private void StartLevel()
@@ -31,6 +38,11 @@ public class GameManager : MonoBehaviour
         GameObject level = Instantiate(levelPrefab);
         currentLevel = level.GetComponent<LevelData>();
         spawnPoint = currentLevel.spawnPoint;
+        currentLevel.goalBottle.SetGameManager(instance);
+
+        //screenOverlay.GetComponent<Animator>().StopPlayback();
+
+        screenOverlay.GetComponent<Animator>().Play("Hide Overlay");
     }
 
     private void SpawnPlayer()
@@ -71,5 +83,18 @@ public class GameManager : MonoBehaviour
                 timerRunning = false;
             }
         }
+    }
+
+    public void CompletedLevel()
+    {
+        largeBottle.gameObject.SetActive(true);
+        largeBottle.PlayAnimation();
+        //TODO: implement level switching
+        Debug.Log("WIN");
+    }
+
+    public void RestartLevel()
+    {
+
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 54356062}
   - component: {fileID: 54356064}
   - component: {fileID: 54356063}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bottle Spray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4834,8 +4834,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1719012873
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -4872,7 +4872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6250994565409608016}
   - component: {fileID: 6250994565409608019}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Cap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4930,8 +4930,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1719012873
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 8538722229667854149, guid: 6e046e6cc418cf9468e5641b015aaa8e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4954,7 +4954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6250994566023508965}
   - component: {fileID: 6250994566023508964}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5012,8 +5012,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1719012873
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: -4869279086723040139, guid: 6e046e6cc418cf9468e5641b015aaa8e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5036,6 +5036,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6250994566364252213}
   - component: {fileID: 6250994566364252212}
+  - component: {fileID: 5138938966008820891}
   m_Layer: 5
   m_Name: Large Bottle
   m_TagString: Untagged
@@ -5079,3 +5080,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5138938966008820891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6250994566364252218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a85c584b21821d42b376451c4c90c22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystem: {fileID: 54356064}

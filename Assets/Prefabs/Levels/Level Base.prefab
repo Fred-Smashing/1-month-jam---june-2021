@@ -503,11 +503,11 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: 0, g: 0, b: 0, a: 0}
   - m_RefCount: 6
-    m_Data: {r: 0.90831465, g: 0.38748896, b: 0.41100314, a: 1}
+    m_Data: {r: 0.8457816, g: 0.52189153, b: 0.5914367, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.7075753, g: 0.42359677, b: 0.4553998, a: 1}
+    m_Data: {r: 0.8696787, g: 0.4933103, b: 0.5573238, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.7351837, g: 0.40167227, b: 0.47301534, a: 1}
+    m_Data: {r: 0.7541639, g: 0.30167252, b: 0.35141104, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2330,6 +2330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelTimeLimit: 10
   spawnPoint: {fileID: 1413258789929755255}
+  goalBottle: {fileID: 817407254008986426}
 --- !u!1 &6482817059926196860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2506,11 +2507,11 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: 0, g: 0, b: 0, a: 0}
   - m_RefCount: 6
-    m_Data: {r: 0.7622253, g: 0.4343091, b: 0.43561533, a: 1}
+    m_Data: {r: 0.97612584, g: 0.5236998, b: 0.67062384, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.7152144, g: 0.44087827, b: 0.4928074, a: 1}
+    m_Data: {r: 0.8472483, g: 0.3507352, b: 0.46869975, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.9288661, g: 0.54231024, b: 0.6006925, a: 1}
+    m_Data: {r: 0.726897, g: 0.40891275, b: 0.4290524, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2666,6 +2667,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3263666593234053431, guid: e03411ac06aac4d4887316db9680e1cc, type: 3}
   m_PrefabInstance: {fileID: 2743498014278423052}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &817407254008986426 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3263666593234053430, guid: e03411ac06aac4d4887316db9680e1cc, type: 3}
+  m_PrefabInstance: {fileID: 2743498014278423052}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90a10cd09bb018a4398ffeabc2e4e086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8732073697143015394
 PrefabInstance:
   m_ObjectHideFlags: 0
