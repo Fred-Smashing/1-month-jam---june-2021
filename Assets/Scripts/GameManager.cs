@@ -11,24 +11,35 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TMPro.TMP_Text timerText;
 
-    [SerializeField] private LargeBottle largeBottle;
-
-    [SerializeField] private GameObject screenOverlay;
-
     private PlayerController currentPlayer = null;
     private LevelData currentLevel;
 
     private Transform spawnPoint;
 
+    private ScreenOverlay overlay;
+
     private void Start()
     {
+        overlay = GameObject.FindGameObjectWithTag("Overlay").GetComponent<ScreenOverlay>();
+
         StartLevel();
-        largeBottle.gameObject.SetActive(false);
     }
 
     private void StartLevel()
     {
         SetupLevel();
+        //SpawnPlayer();
+
+        StartCoroutine(WaitForOverlay());
+        //StartTimer(currentLevel.levelTimeLimit);
+    }
+
+    private IEnumerator WaitForOverlay()
+    {
+        overlay.HideOverlay();
+
+        yield return new WaitWhile(() => !overlay.tweenCompleted);
+
         SpawnPlayer();
         StartTimer(currentLevel.levelTimeLimit);
     }
@@ -39,10 +50,6 @@ public class GameManager : MonoBehaviour
         currentLevel = level.GetComponent<LevelData>();
         spawnPoint = currentLevel.spawnPoint;
         currentLevel.goalBottle.SetGameManager(instance);
-
-        //screenOverlay.GetComponent<Animator>().StopPlayback();
-
-        screenOverlay.GetComponent<Animator>().Play("Hide Overlay");
     }
 
     private void SpawnPlayer()
@@ -87,14 +94,12 @@ public class GameManager : MonoBehaviour
 
     public void CompletedLevel()
     {
-        largeBottle.gameObject.SetActive(true);
-        largeBottle.PlayAnimation();
         //TODO: implement level switching
         Debug.Log("WIN");
     }
 
     public void RestartLevel()
     {
-
+        //TODO: implement level restart
     }
 }

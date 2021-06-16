@@ -49,9 +49,9 @@ ScriptedImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
     normalMap: 0
     textureFormat: 0
     maxTextureSize: 0
@@ -90,29 +90,7 @@ ScriptedImporter:
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData:
-  - name: Layer 2
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 95
-      width: 124
-      height: 83
-    spriteID: ae6a95fcb6b9f5940a8d53170dfa5d7b
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 4, y: 95}
-  - name: Background
+  - name: Overlay
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -122,8 +100,8 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 124
-      height: 83
-    spriteID: fdb10d4825c91ac4a878ea82ad12d7fe
+      height: 166
+    spriteID: ae6a95fcb6b9f5940a8d53170dfa5d7b
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -197,7 +175,7 @@ ScriptedImporter:
   importHiddenLayers: 0
   importedTextureWidth: 256
   importedTextureHeight: 256
-  documentSize: {x: 124, y: 83}
+  documentSize: {x: 124, y: 166}
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   spriteCategoryList:
@@ -206,21 +184,14 @@ ScriptedImporter:
   textureActualHeight: 256
   spritePackingTag: 
   resliceFromLayer: 0
-  characterMode: 1
+  characterMode: 0
   mosaicPSDLayers:
-  - name: Layer 2
-    spriteName: Layer 2
+  - name: Overlay
+    spriteName: Overlay
     isGroup: 0
     parentIndex: -1
     spriteID: ae6a95fcb6b9f5940a8d53170dfa5d7b
     layerID: 0
-    mosaicPosition: {x: 4, y: 95}
-  - name: Background
-    spriteName: Background
-    isGroup: 0
-    parentIndex: -1
-    spriteID: fdb10d4825c91ac4a878ea82ad12d7fe
-    layerID: 332801758
     mosaicPosition: {x: 4, y: 4}
   rigPSDLayers:
   - name: Background
