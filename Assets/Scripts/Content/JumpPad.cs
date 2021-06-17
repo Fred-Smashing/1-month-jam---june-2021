@@ -19,7 +19,7 @@ public class JumpPad : MonoBehaviour
             {
                 Rigidbody2D affectedBody = collisionGameObject.GetComponent<Rigidbody2D>();
 
-                var momentum = Mathf.Abs(collisionGameObject.GetComponent<PlayerController>().velocityLastFrame.y * 0.52f);
+                var momentum = Mathf.Abs(collisionGameObject.GetComponent<PlayerController>().velocityLastFrame.y * 0.4f);
 
                 collisionGameObject.GetComponent<Rigidbody2D>().AddForce(forceDirection * (padForce + momentum), ForceMode2D.Impulse);
                 collisionList.Add(collisionGameObject);

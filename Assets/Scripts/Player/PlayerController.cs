@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 defaultScale;
 
+    private bool controlsLocked = true;
+
     private void Awake()
     {
         _body = GetComponent<Rigidbody2D>();
@@ -40,16 +42,28 @@ public class PlayerController : MonoBehaviour
     private bool jumpRemember;
     void Update()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-
-        horizontalInput = Mathf.Clamp(horizontalInput, -1, 1);
-
-        jumpInput = Input.GetKeyDown(KeyCode.Space);
-
-        if (jumpInput && canJump)
+        if (!controlsLocked)
         {
-            jumpRemember = true;
-            StartCoroutine(JumpRememberTimer());
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+
+            horizontalInput = Mathf.Clamp(horizontalInput, -1, 1);
+
+            jumpInput = Input.GetKeyDown(KeyCode.Space);
+
+            if (jumpInput && canJump)
+            {
+                jumpRemember = true;
+                StartCoroutine(JumpRememberTimer());
+            }
+        }
+        else
+        {
+            if (horizontalInput != 0 || jumpInput != false)
+            {
+                horizontalInput = 0;
+
+                jumpInput = false;
+            }
         }
     }
 
@@ -113,6 +127,11 @@ public class PlayerController : MonoBehaviour
         }
 
         _animator.SetBool("inAir", !isGrounded);
+    }
+
+    public void SetControlLock(bool locked)
+    {
+        controlsLocked = locked;
     }
 
     #region Physics Functions

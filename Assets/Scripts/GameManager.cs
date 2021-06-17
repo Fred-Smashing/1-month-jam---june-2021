@@ -64,6 +64,8 @@ public class GameManager : MonoBehaviour
         player.transform.position = spawnPoint.position;
 
         currentPlayer = player.GetComponent<PlayerController>();
+
+        currentPlayer.SetControlLock(false);
     }
 
     private bool timerRunning;

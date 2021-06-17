@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 4064565829999483444, guid: 53937b97203a1604e839a653ea2de371, type: 3}
-  levelPrefab: {fileID: 6593020122648104650, guid: 6894b624a694c744da3c9e6a2ca391a4, type: 3}
+  levelPrefab: {fileID: 1275957378009622518, guid: befe024df6eb45540ab21fde80103daf, type: 3}
   timerText: {fileID: 0}

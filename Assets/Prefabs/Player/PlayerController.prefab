@@ -77,18 +77,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d32b188c7198e418036e9eeb938c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheck: {fileID: 5130071592864696903}
-  groundRadius: 0.05
+  raycastPos: {fileID: 0}
+  raycastDistance: 0.05
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  horizontalInput: 0
-  jumpInput: 0
-  jumpRemember: 0
+  speed: 3
+  airSpeed: 3
+  acceleration: 10
+  airAcceleration: 5
+  jumpHeight: 2
+  jumpRememberBuffer: 0.2
+  coyoteTime: 0.1
   velocity: {x: 0, y: 0, z: 0}
   canJump: 0
   isGrounded: 0
   wasGrounded: 0
+  velocityLastFrame: {x: 0, y: 0}
 --- !u!50 &5130071591034760557
 Rigidbody2D:
   serializedVersion: 4

@@ -376,7 +376,7 @@ MonoBehaviour:
   airSpeed: 8
   acceleration: 5
   airAcceleration: 2
-  jumpHeight: 10.5
+  jumpHeight: 8
   jumpRememberBuffer: 0.2
   coyoteTime: 0.1
   velocity: {x: 0, y: 0, z: 0}
