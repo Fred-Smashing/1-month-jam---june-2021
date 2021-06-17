@@ -5,9 +5,8 @@ using DigitalRuby.Tween;
 
 public class ScreenOverlay : MonoBehaviour
 {
-    [SerializeField] private RectTransform overlayTransform;
-    private float showingPos = 350;
-    private float hiddenPos = -1100;
+    private float showingAlpha = 1;
+    private float hiddenAlpha = 0;
 
     [HideInInspector] public bool tweenCompleted;
     public bool tweenRunning;
@@ -16,33 +15,33 @@ public class ScreenOverlay : MonoBehaviour
         tweenRunning = true;
         tweenCompleted = false;
 
-        DoOverlayTween(showingPos);
+        DoOverlayTween(showingAlpha);
     }
 
     public void HideOverlay()
     {
         tweenRunning = true;
         tweenCompleted = false;
-        
-        DoOverlayTween(hiddenPos);
+
+        DoOverlayTween(hiddenAlpha);
     }
 
-    private void DoOverlayTween(float targetPos)
+    private void DoOverlayTween(float targetAlpha)
     {
-        System.Action<ITween<Vector3>> updateOverlayPosition = (t) =>
+        System.Action<ITween<float>> updateOverlayPosition = (t) =>
         {
-            overlayTransform.anchoredPosition = t.CurrentValue;
+            GetComponent<CanvasGroup>().alpha = t.CurrentValue;
         };
 
-        System.Action<ITween<Vector3>> updateOverlayCompleted = (t) =>
+        System.Action<ITween<float>> updateOverlayCompleted = (t) =>
         {
             tweenCompleted = true;
             tweenRunning = false;
             Debug.Log("Tween Completed");
         };
 
-        Vector3 currentPos = overlayTransform.anchoredPosition;
+        float currentAlpha = GetComponent<CanvasGroup>().alpha;
 
-        overlayTransform.gameObject.Tween("ShowOverlay", currentPos, new Vector3(currentPos.x, targetPos, currentPos.z), 1.5f, TweenScaleFunctions.CubicEaseInOut, updateOverlayPosition, updateOverlayCompleted);
+        this.gameObject.Tween("ShowOverlay", currentAlpha, targetAlpha, 0.8f, TweenScaleFunctions.CubicEaseInOut, updateOverlayPosition, updateOverlayCompleted);
     }
 }

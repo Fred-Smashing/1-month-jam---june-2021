@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1296344492583118555
+--- !u!1 &1833134232219708112
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,64 +8,64 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4689847760401227062}
-  - component: {fileID: 4457592526516249819}
-  - component: {fileID: 5066242163620136533}
+  - component: {fileID: 1235602273319711641}
+  - component: {fileID: 378653367246095273}
+  - component: {fileID: 810982848112653392}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &4689847760401227062
+--- !u!224 &1235602273319711641
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296344492583118555}
+  m_GameObject: {fileID: 1833134232219708112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9, y: 9, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1330972403216940060}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 350}
-  m_SizeDelta: {x: 124, y: 166}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &4457592526516249819
+--- !u!222 &378653367246095273
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296344492583118555}
+  m_GameObject: {fileID: 1833134232219708112}
   m_CullTransparentMesh: 1
---- !u!114 &5066242163620136533
+--- !u!114 &810982848112653392
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296344492583118555}
+  m_GameObject: {fileID: 1833134232219708112}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3708933914144602819, guid: 2ac8ced4fbf661f48ac75584ee1329bf, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 5565616038313372606}
   - component: {fileID: 9204416234815632526}
   - component: {fileID: 2786771027649199495}
+  - component: {fileID: 5848272774838276836}
   m_Layer: 5
   m_Name: Screen Overlay
   m_TagString: Overlay
@@ -105,7 +106,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 4689847760401227062}
+  - {fileID: 1235602273319711641}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be000537065bd149b275abc4dc82cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overlayTransform: {fileID: 4689847760401227062}
+  overlayTransform: {fileID: 0}
   tweenCompleted: 0
   tweenRunning: 0
 --- !u!114 &9204416234815632526
@@ -162,3 +163,15 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 100
   m_TargetDisplay: 0
+--- !u!225 &5848272774838276836
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9204416234815632524}
+  m_Enabled: 1
+  m_Alpha: 0.97
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
