@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Kill() {
-
+        
     }
 
     #region Physics Functions

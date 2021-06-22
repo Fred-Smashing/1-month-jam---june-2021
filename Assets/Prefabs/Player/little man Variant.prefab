@@ -379,6 +379,15 @@ MonoBehaviour:
   jumpHeight: 8
   jumpRememberBuffer: 0.2
   coyoteTime: 0.1
+  ragdollPrefab: {fileID: 254162871755985033, guid: 315953a9f42d19b4bad36b1a837d53f3, type: 3}
+  headTransform: {fileID: 7730648334688080239}
+  torsoTransform: {fileID: 6052892208278972546}
+  leftArmTransform: {fileID: 2194163761570466851}
+  rightArmTransform: {fileID: 6632208480296798402}
+  leftLegTransform: {fileID: 5711658831683654705}
+  rightLegTransform: {fileID: 753693608810007529}
+  lowerLeftLegTransform: {fileID: 8159094838548855413}
+  lowerRightLegTransform: {fileID: 5066289743925274798}
   velocity: {x: 0, y: 0, z: 0}
   canJump: 0
   isGrounded: 0
@@ -773,6 +782,26 @@ GameObject:
 --- !u!4 &6050252529372964713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -2692202800871387166, guid: 09a426be6a2378f4eac9bfb76f977582, type: 3}
+  m_PrefabInstance: {fileID: 672601291646625931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6052892208278972546 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2497881324365135863, guid: 09a426be6a2378f4eac9bfb76f977582, type: 3}
+  m_PrefabInstance: {fileID: 672601291646625931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7730648334688080239 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2153484799499781660, guid: 09a426be6a2378f4eac9bfb76f977582, type: 3}
+  m_PrefabInstance: {fileID: 672601291646625931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2194163761570466851 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1668217658977395880, guid: 09a426be6a2378f4eac9bfb76f977582, type: 3}
+  m_PrefabInstance: {fileID: 672601291646625931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6632208480296798402 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3071497590723026871, guid: 09a426be6a2378f4eac9bfb76f977582, type: 3}
   m_PrefabInstance: {fileID: 672601291646625931}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5711658831683654705 stripped

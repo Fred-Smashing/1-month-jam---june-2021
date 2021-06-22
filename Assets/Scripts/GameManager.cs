@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
     private GameManager instance => this;
 
     [SerializeField] private GameObject playerPrefab;
@@ -25,8 +24,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> levelList = new List<GameObject>();
 
-    private void Start()
-    {
+    private void Start() {
         overlay = GameObject.FindGameObjectWithTag("Overlay").GetComponent<ScreenOverlay>();
 
         if (cleanSaveData) {
@@ -46,8 +44,7 @@ public class GameManager : MonoBehaviour
         StartLevel();
     }
 
-    private void StartLevel()
-    {
+    private void StartLevel() {
         SetupLevel();
         //SpawnPlayer();
 
@@ -55,8 +52,7 @@ public class GameManager : MonoBehaviour
         //StartTimer(currentLevel.levelTimeLimit);
     }
 
-    private IEnumerator WaitForOverlayToStartGame()
-    {
+    private IEnumerator WaitForOverlayToStartGame() {
         overlay.HideOverlay();
 
         yield return new WaitWhile(() => !overlay.tweenCompleted);
@@ -65,8 +61,7 @@ public class GameManager : MonoBehaviour
         StartTimer(currentLevel.levelTimeLimit);
     }
 
-    private void SetupLevel()
-    {
+    private void SetupLevel() {
         levelCompleteOverlay.SetActive(false);
         levelFailedOverlay.SetActive(false);
 
@@ -78,10 +73,8 @@ public class GameManager : MonoBehaviour
         SpawnPlayer();
     }
 
-    private void SpawnPlayer()
-    {
-        if (currentPlayer != null)
-        {
+    private void SpawnPlayer() {
+        if (currentPlayer != null) {
             Destroy(currentPlayer.gameObject);
         }
 
@@ -96,24 +89,19 @@ public class GameManager : MonoBehaviour
 
     private bool timerRunning;
     private float timeRemaining;
-    private void StartTimer(float time)
-    {
+    private void StartTimer(float time) {
         timeRemaining = time;
         timerRunning = true;
     }
 
-    private void Update()
-    {
-        if (timerRunning)
-        {
-            if (timeRemaining > 0)
-            {
+    private void Update() {
+        if (timerRunning) {
+            if (timeRemaining > 0) {
                 timeRemaining -= Time.deltaTime;
 
                 timerText.text = string.Format("Sobriety in " + "({0:0.0})", timeRemaining);
             }
-            else
-            {
+            else {
                 timeRemaining = 0;
                 timerRunning = false;
 
@@ -122,8 +110,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CompletedLevel()
-    {
+    public void CompletedLevel() {
         currentPlayer.SetControlLock(true);
 
         timerRunning = false;
@@ -182,8 +169,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void RestartLevel()
-    {
+    public void RestartLevel() {
         overlay.ShowOverlay();
         StartCoroutine(RestartLevelCoroutine());
     }
@@ -213,8 +199,8 @@ public class GameManager : MonoBehaviour
     }
 
     private GameObject GetCurrentLevelByName(string levelName) {
-        
-        foreach(GameObject level in levelList) {
+
+        foreach (GameObject level in levelList) {
             if (level.name == levelName) {
                 return level;
             }
