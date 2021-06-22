@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TMPro.TMP_Text timerText;
 
+    [SerializeField] private GameObject levelCompleteOverlay;
+    [SerializeField] private GameObject levelFailedOverlay;
+
     private PlayerController currentPlayer = null;
     private LevelData currentLevel;
 
@@ -18,9 +21,27 @@ public class GameManager : MonoBehaviour
 
     private ScreenOverlay overlay;
 
+    [SerializeField] private bool cleanSaveData = false;
+
+    [SerializeField] private List<GameObject> levelList = new List<GameObject>();
+
     private void Start()
     {
         overlay = GameObject.FindGameObjectWithTag("Overlay").GetComponent<ScreenOverlay>();
+
+        if (cleanSaveData) {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+        }
+        else {
+            if (CheckForSavedLevel()) {
+
+                var foundLevel = GetCurrentLevelByName(PlayerPrefs.GetString("Current Level"));
+                if (foundLevel != null) {
+                    levelPrefab = foundLevel;
+                }
+            }
+        }
 
         StartLevel();
     }
@@ -30,26 +51,31 @@ public class GameManager : MonoBehaviour
         SetupLevel();
         //SpawnPlayer();
 
-        StartCoroutine(WaitForOverlay());
+        StartCoroutine(WaitForOverlayToStartGame());
         //StartTimer(currentLevel.levelTimeLimit);
     }
 
-    private IEnumerator WaitForOverlay()
+    private IEnumerator WaitForOverlayToStartGame()
     {
         overlay.HideOverlay();
 
         yield return new WaitWhile(() => !overlay.tweenCompleted);
 
-        SpawnPlayer();
+        currentPlayer.SetControlLock(false);
         StartTimer(currentLevel.levelTimeLimit);
     }
 
     private void SetupLevel()
     {
+        levelCompleteOverlay.SetActive(false);
+        levelFailedOverlay.SetActive(false);
+
         GameObject level = Instantiate(levelPrefab);
         currentLevel = level.GetComponent<LevelData>();
         spawnPoint = currentLevel.spawnPoint;
         currentLevel.goalBottle.SetGameManager(instance);
+
+        SpawnPlayer();
     }
 
     private void SpawnPlayer()
@@ -65,7 +91,7 @@ public class GameManager : MonoBehaviour
 
         currentPlayer = player.GetComponent<PlayerController>();
 
-        currentPlayer.SetControlLock(false);
+        currentPlayer.SetControlLock(true);
     }
 
     private bool timerRunning;
@@ -90,18 +116,124 @@ public class GameManager : MonoBehaviour
             {
                 timeRemaining = 0;
                 timerRunning = false;
+
+                FailedLevel();
             }
         }
     }
 
     public void CompletedLevel()
     {
-        //TODO: implement level switching
-        Debug.Log("WIN");
+        currentPlayer.SetControlLock(true);
+
+        timerRunning = false;
+
+        levelCompleteOverlay.SetActive(true);
+
+        SaveNextLevelByName();
+
+        var button = GameObject.Find("Next Level Button");
+
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(button);
+    }
+
+    public void FailedLevel() {
+        currentPlayer.SetControlLock(true);
+
+        levelFailedOverlay.SetActive(true);
+
+        var button = GameObject.Find("Retry Level Button");
+
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(button);
+    }
+
+    public void KillPlayer() {
+        currentPlayer.Kill();
+
+        timerRunning = false;
+
+        FailedLevel();
+    }
+
+    #region Level Loading
+    public void NextLevel() {
+        overlay.ShowOverlay();
+
+        StartCoroutine(LoadNextLevelCoroutine());
+
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
+    }
+
+    private IEnumerator LoadNextLevelCoroutine() {
+        yield return new WaitWhile(() => !overlay.tweenCompleted);
+
+        Destroy(currentLevel.gameObject);
+        Destroy(currentPlayer.gameObject);
+
+        if (currentLevel.nextLevel != null) {
+            levelPrefab = currentLevel.nextLevel;
+
+            SetupLevel();
+
+            StartCoroutine(WaitForOverlayToStartGame());
+        }
+        else {
+            QuitGame();
+        }
     }
 
     public void RestartLevel()
     {
-        //TODO: implement level restart
+        overlay.ShowOverlay();
+        StartCoroutine(RestartLevelCoroutine());
     }
+
+    private IEnumerator RestartLevelCoroutine() {
+        yield return new WaitWhile(() => !overlay.tweenCompleted);
+
+        Destroy(currentLevel.gameObject);
+        Destroy(currentPlayer.gameObject);
+
+        SetupLevel();
+
+        StartCoroutine(WaitForOverlayToStartGame());
+    }
+    #endregion
+
+    #region Save Data Handling
+    private bool CheckForSavedLevel() {
+        return PlayerPrefs.HasKey("Current Level");
+    }
+
+    private void SaveNextLevelByName() {
+        if (currentLevel.nextLevel != null) {
+            PlayerPrefs.SetString("Current Level", currentLevel.nextLevel.name);
+            PlayerPrefs.Save();
+        }
+    }
+
+    private GameObject GetCurrentLevelByName(string levelName) {
+        
+        foreach(GameObject level in levelList) {
+            if (level.name == levelName) {
+                return level;
+            }
+        }
+        return null;
+    }
+    #endregion
+
+    #region Quit Game
+    public void QuitGame() {
+        PlayerPrefs.Save();
+        overlay.ShowOverlay();
+        StartCoroutine(QuitGameCoroutine());
+    }
+
+    private IEnumerator QuitGameCoroutine() {
+        yield return new WaitWhile(() => !overlay.tweenCompleted);
+
+        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("MenuScene");
+    }
+    #endregion
 }

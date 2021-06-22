@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 6482817059102213319}
   - component: {fileID: 6482817059102213316}
   - component: {fileID: 6482817059102213317}
+  - component: {fileID: 8098126548845573819}
   m_Layer: 8
   m_Name: Tilemap
   m_TagString: Hurtzones
@@ -411,6 +412,18 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &8098126548845573819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6482817059102213323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce1484e26923731419dfd23e5ca29ced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6482817059540530812
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,11 +598,11 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: 0, g: 0, b: 0, a: 0}
   - m_RefCount: 6
-    m_Data: {r: 0.71221685, g: 0.34980404, b: 0.35483375, a: 1}
+    m_Data: {r: 0.7206009, g: 0.33997688, b: 0.40647778, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.9558719, g: 0.46821782, b: 0.5561808, a: 1}
+    m_Data: {r: 0.7980864, g: 0.5509657, b: 0.5670926, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.70077586, g: 0.45998922, b: 0.47674042, a: 1}
+    m_Data: {r: 0.84799033, g: 0.3882715, b: 0.52804154, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2054,6 +2067,7 @@ MonoBehaviour:
   levelTimeLimit: 10
   spawnPoint: {fileID: 1413258789929755255}
   goalBottle: {fileID: 817407254008986426}
+  nextLevel: {fileID: 0}
 --- !u!1 &6482817059926196860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2230,11 +2244,11 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: 0, g: 0, b: 0, a: 0}
   - m_RefCount: 6
-    m_Data: {r: 0.92795086, g: 0.43475318, b: 0.4776585, a: 1}
+    m_Data: {r: 0.92458504, g: 0.5685551, b: 0.67909735, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.7171239, g: 0.4907222, b: 0.543807, a: 1}
+    m_Data: {r: 0.77560955, g: 0.43490157, b: 0.47873193, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.8368697, g: 0.46191263, b: 0.57005495, a: 1}
+    m_Data: {r: 0.8040523, g: 0.48926288, b: 0.51711696, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}

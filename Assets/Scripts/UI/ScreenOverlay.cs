@@ -37,7 +37,7 @@ public class ScreenOverlay : MonoBehaviour
         {
             tweenCompleted = true;
             tweenRunning = false;
-            Debug.Log("Tween Completed");
+            //Debug.Log("Tween Completed");
         };
 
         float currentAlpha = GetComponent<CanvasGroup>().alpha;

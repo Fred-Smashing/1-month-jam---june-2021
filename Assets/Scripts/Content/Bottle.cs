@@ -25,6 +25,8 @@ public class Bottle : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             _gameManager.CompletedLevel();
+
+            Destroy(this.gameObject);
         }
     }
 

@@ -7,4 +7,5 @@ public class LevelData : MonoBehaviour
     public float levelTimeLimit = 10;
     public Transform spawnPoint;
     public Bottle goalBottle;
+    public GameObject nextLevel;
 }

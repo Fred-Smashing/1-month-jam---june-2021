@@ -134,6 +134,10 @@ public class PlayerController : MonoBehaviour
         controlsLocked = locked;
     }
 
+    public void Kill() {
+
+    }
+
     #region Physics Functions
     private void Jump(float jumpForce)
     {

@@ -44,5 +44,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 4064565829999483444, guid: 53937b97203a1604e839a653ea2de371, type: 3}
-  levelPrefab: {fileID: 1275957378009622518, guid: befe024df6eb45540ab21fde80103daf, type: 3}
+  levelPrefab: {fileID: 6593020122648104650, guid: 6894b624a694c744da3c9e6a2ca391a4, type: 3}
   timerText: {fileID: 0}
+  levelCompleteOverlay: {fileID: 0}
+  levelFailedOverlay: {fileID: 0}
+  cleanSaveData: 0
+  levelList:
+  - {fileID: 6593020122648104650, guid: 6894b624a694c744da3c9e6a2ca391a4, type: 3}
+  - {fileID: 5709660846358490980, guid: b38623c8c0808284a80d7f1142a70d8f, type: 3}
+  - {fileID: 2038686126172597797, guid: eed19fed3ea3f8e4083758ae88223e66, type: 3}
+  - {fileID: 1275957378009622518, guid: befe024df6eb45540ab21fde80103daf, type: 3}
