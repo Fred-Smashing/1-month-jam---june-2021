@@ -57,6 +57,9 @@ public class MenuManager : MonoBehaviour
                 controlsVisible = false;
 
                 SetObjectSelected(GameObject.Find("Controls Button").gameObject);
+
+                AudioSource source = GetComponentInChildren<AudioSource>();
+                source.Play();
             }
         }
     }

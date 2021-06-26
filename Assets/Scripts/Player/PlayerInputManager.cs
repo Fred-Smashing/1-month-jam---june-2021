@@ -9,6 +9,12 @@ public class PlayerInputManager : MonoBehaviour
     [SerializeField] private float variationFrequency = 0.7f;
     [SerializeField] private bool randomizeInput = true;
 
+    private float time;
+    private void Start()
+    {
+        time = Time.realtimeSinceStartup;
+    }
+
     private float horizontalInput;
     private bool jumpInput;
     private void Update()
@@ -18,7 +24,8 @@ public class PlayerInputManager : MonoBehaviour
 
         if (randomizeInput)
         {
-            float variation = Mathf.Sin(Time.time * variationFrequency);
+            float sineTime = time - Time.realtimeSinceStartup;
+            float variation = Mathf.Sin(-sineTime * variationFrequency);
 
             horizontalInput = horizontal * Mathf.Sign(variation);
 

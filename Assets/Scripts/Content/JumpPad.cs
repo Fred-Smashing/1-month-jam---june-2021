@@ -8,6 +8,12 @@ public class JumpPad : MonoBehaviour
     [SerializeField] private Vector2 forceDirection = Vector2.up;
 
     private List<GameObject> collisionList = new List<GameObject>();
+    private AudioSource _audioSource;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -24,6 +30,7 @@ public class JumpPad : MonoBehaviour
                 collisionGameObject.GetComponent<Rigidbody2D>().AddForce(forceDirection * (padForce + momentum), ForceMode2D.Impulse);
                 collisionList.Add(collisionGameObject);
 
+                _audioSource?.Play();
                 //Debug.Log(string.Format("Added force to body {0} with a force of {1}", affectedBody, padForce + momentum));
             }
         }

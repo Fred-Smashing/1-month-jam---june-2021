@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _body;
     private Collider2D _collider;
     private Animator _animator;
+    private AudioSource _audioSource;
 
     [Header("Physics"), Space]
     [SerializeField] private Transform raycastPos;
@@ -27,19 +28,25 @@ public class PlayerController : MonoBehaviour
     private Vector3 defaultScale;
 
     private bool controlsLocked = true;
+    private bool ignoreExternalInput = false;
+
+    [Header("Audio"), Space]
+    [SerializeField] private AudioClip footstepSound;
+    [SerializeField] private AudioClip landSound;
 
     private void Awake()
     {
         _body = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
 
         defaultScale = transform.localScale;
     }
 
     public void SetExternallyHorizontalInput(float value)
     {
-        if (!controlsLocked)
+        if (!controlsLocked && !ignoreExternalInput)
         {
             horizontalInput = value;
         }
@@ -47,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetExternallyJumpInput(bool value)
     {
-        if (!controlsLocked)
+        if (!controlsLocked && !ignoreExternalInput)
         {
             jumpInput = value;
         }
@@ -60,8 +67,16 @@ public class PlayerController : MonoBehaviour
     {
         if (!controlsLocked)
         {
-            //horizontalInput = Input.GetAxisRaw("Horizontal");
-            //jumpInput = Input.GetKeyDown(KeyCode.Space);
+            //if (isGrounded)
+            //{
+            //    ignoreExternalInput = false;
+            //}
+            //else
+            //{
+            //    ignoreExternalInput = true;
+            //    horizontalInput = Input.GetAxisRaw("Horizontal");
+            //    jumpInput = Input.GetKeyDown(KeyCode.Space);
+            //}
 
             if (jumpInput && canJump)
             {
@@ -104,7 +119,7 @@ public class PlayerController : MonoBehaviour
             velocity.x = Mathf.Lerp(velocity.x, airSpeed * horizontalInput, airAcceleration * Time.deltaTime);
         }
 
-        StickyLanding();
+        Landing();
 
         if (!isGrounded && wasGrounded)
         {
@@ -149,7 +164,22 @@ public class PlayerController : MonoBehaviour
 
     public void Kill()
     {
+        controlsLocked = true;
 
+        _body.freezeRotation = false;
+
+        var force = Random.Range(-10, 10);
+
+        if (force < 2 && force > 0)
+        {
+            force = Random.Range(2, 10);
+        }
+        else if (force > -2 && force < 0)
+        {
+            force = Random.Range(-2, -10);
+        }
+
+        _body.AddTorque(Random.Range(-10, 10));
     }
 
     #region Physics Functions
@@ -168,12 +198,17 @@ public class PlayerController : MonoBehaviour
         return force;
     }
 
-    private void StickyLanding()
+    private void Landing()
     {
         if (isGrounded && !wasGrounded && horizontalInput == 0)
         {
             velocity.y = 0;
             velocity.x = velocity.x / 2;
+        }
+
+        if (isGrounded && !wasGrounded)
+        {
+            PlayeLandSound();
         }
     }
 
@@ -208,6 +243,20 @@ public class PlayerController : MonoBehaviour
         canJump = false;
     }
     #endregion
+
+    public void PlayFootStepSound()
+    {
+        _audioSource.clip = footstepSound;
+        _audioSource.pitch = 1 + Random.Range(-0.2f, 0.2f);
+        _audioSource.Play();
+    }
+
+    public void PlayeLandSound()
+    {
+        _audioSource.clip = landSound;
+        _audioSource.pitch = 1;
+        _audioSource.Play();
+    }
 
     #region Gizmos Drawing
     private void OnDrawGizmos()

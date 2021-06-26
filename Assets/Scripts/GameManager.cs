@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     private PlayerController currentPlayer = null;
     private LevelData currentLevel;
+    private int currentLevelId = 0;
 
     private Transform spawnPoint;
 
@@ -24,6 +25,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool cleanSaveData = false;
 
     [SerializeField] private List<GameObject> levelList = new List<GameObject>();
+
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip winSound;
+    [SerializeField] private AudioClip loseSound;
 
     private void Start()
     {
@@ -38,12 +43,12 @@ public class GameManager : MonoBehaviour
         {
             if (CheckForSavedLevel())
             {
-
-                var foundLevel = GetCurrentLevelByName(PlayerPrefs.GetString("Current Level"));
-                if (foundLevel != null)
-                {
-                    levelPrefab = foundLevel;
-                }
+                currentLevelId = PlayerPrefs.GetInt("Current Level");
+                levelPrefab = levelList[currentLevelId];
+            }
+            else
+            {
+                levelPrefab = levelList[0];
             }
         }
 
@@ -122,7 +127,7 @@ public class GameManager : MonoBehaviour
                 timeRemaining = 0;
                 timerRunning = false;
 
-                FailedLevel();
+                KillPlayer();
             }
         }
     }
@@ -138,11 +143,14 @@ public class GameManager : MonoBehaviour
 
             levelCompleteOverlay.SetActive(true);
 
-            SaveNextLevelByName();
+            SaveLevelById();
 
             var button = GameObject.Find("Next Level Button");
 
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(button);
+
+            _audioSource.clip = winSound;
+            _audioSource.Play();
 
             levelEnded = true;
         }
@@ -159,6 +167,9 @@ public class GameManager : MonoBehaviour
             var button = GameObject.Find("Retry Level Button");
 
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(button);
+
+            _audioSource.clip = loseSound;
+            _audioSource.Play();
 
             levelEnded = true;
         }
@@ -190,18 +201,36 @@ public class GameManager : MonoBehaviour
         Destroy(currentLevel.gameObject);
         Destroy(currentPlayer.gameObject);
 
-        if (currentLevel.nextLevel != null)
+        currentLevelId++;
+
+        if (currentLevelId > levelList.Count - 1)
         {
-            levelPrefab = currentLevel.nextLevel;
+            // Reached the end of the levels
+            // Reset Save Data and Return to main menu
+            ResetSavedLevel();
+            QuitGame();
+        }
+        else
+        {
+            levelPrefab = levelList[currentLevelId];
 
             SetupLevel();
 
             StartCoroutine(WaitForOverlayToStartGame());
         }
-        else
-        {
-            QuitGame();
-        }
+
+        //if (currentLevel.nextLevel != null)
+        //{
+        //    levelPrefab = currentLevel.nextLevel;
+
+        //    SetupLevel();
+
+        //    StartCoroutine(WaitForOverlayToStartGame());
+        //}
+        //else
+        //{
+        //    QuitGame();
+        //}
     }
 
     public void RestartLevel()
@@ -229,26 +258,19 @@ public class GameManager : MonoBehaviour
         return PlayerPrefs.HasKey("Current Level");
     }
 
-    private void SaveNextLevelByName()
+    private void SaveLevelById()
     {
         if (currentLevel.nextLevel != null)
         {
-            PlayerPrefs.SetString("Current Level", currentLevel.nextLevel.name);
+            PlayerPrefs.SetInt("Current Level", currentLevelId);
             PlayerPrefs.Save();
         }
     }
 
-    private GameObject GetCurrentLevelByName(string levelName)
+    private void ResetSavedLevel()
     {
-
-        foreach (GameObject level in levelList)
-        {
-            if (level.name == levelName)
-            {
-                return level;
-            }
-        }
-        return null;
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
     }
     #endregion
 
