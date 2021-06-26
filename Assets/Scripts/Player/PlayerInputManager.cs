@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class PlayerInputManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private PlayerController _controller;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private float variationFrequency = 0.7f;
+    [SerializeField] private bool randomizeInput = true;
+
+    private float horizontalInput;
+    private bool jumpInput;
+    private void Update()
     {
-        
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        jumpInput = Input.GetKeyDown(KeyCode.Space);
+
+        if (randomizeInput)
+        {
+            float variation = Mathf.Sin(Time.time * variationFrequency);
+
+            horizontalInput = horizontal * Mathf.Sign(variation);
+
+            horizontalInput = Mathf.Clamp(horizontalInput, -1, 1);
+        }
+        else
+        {
+            horizontalInput = horizontal;
+        }
+
+        _controller.SetExternallyHorizontalInput(horizontalInput);
+        _controller.SetExternallyJumpInput(jumpInput);
     }
 }

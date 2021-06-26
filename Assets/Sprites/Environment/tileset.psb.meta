@@ -476,7 +476,7 @@ ScriptedImporter:
   mosaicSpriteImportData:
   - name: tileset_0
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -498,7 +498,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 68}
   - name: tileset_1
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -520,7 +520,7 @@ ScriptedImporter:
     uvTransform: {x: 12, y: 68}
   - name: tileset_2
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -542,7 +542,7 @@ ScriptedImporter:
     uvTransform: {x: 20, y: 68}
   - name: tileset_3
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -564,7 +564,7 @@ ScriptedImporter:
     uvTransform: {x: 28, y: 68}
   - name: tileset_4
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -586,7 +586,7 @@ ScriptedImporter:
     uvTransform: {x: 36, y: 68}
   - name: tileset_5
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -608,7 +608,7 @@ ScriptedImporter:
     uvTransform: {x: 44, y: 68}
   - name: tileset_6
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -630,7 +630,7 @@ ScriptedImporter:
     uvTransform: {x: 52, y: 68}
   - name: tileset_7
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -652,7 +652,7 @@ ScriptedImporter:
     uvTransform: {x: 60, y: 68}
   - name: tileset_8
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -674,7 +674,7 @@ ScriptedImporter:
     uvTransform: {x: 68, y: 68}
   - name: tileset_9
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -696,7 +696,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 60}
   - name: tileset_10
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -718,7 +718,7 @@ ScriptedImporter:
     uvTransform: {x: 12, y: 60}
   - name: tileset_11
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -740,7 +740,7 @@ ScriptedImporter:
     uvTransform: {x: 20, y: 60}
   - name: tileset_12
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -762,7 +762,7 @@ ScriptedImporter:
     uvTransform: {x: 28, y: 60}
   - name: tileset_13
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -784,7 +784,7 @@ ScriptedImporter:
     uvTransform: {x: 44, y: 60}
   - name: tileset_14
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -806,7 +806,7 @@ ScriptedImporter:
     uvTransform: {x: 52, y: 60}
   - name: tileset_15
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -828,7 +828,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 52}
   - name: tileset_16
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -850,7 +850,7 @@ ScriptedImporter:
     uvTransform: {x: 12, y: 52}
   - name: tileset_17
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -872,7 +872,7 @@ ScriptedImporter:
     uvTransform: {x: 20, y: 52}
   - name: tileset_18
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -894,7 +894,7 @@ ScriptedImporter:
     uvTransform: {x: 28, y: 52}
   - name: tileset_19
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -916,7 +916,7 @@ ScriptedImporter:
     uvTransform: {x: 36, y: 52}
   - name: tileset_20
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -938,7 +938,7 @@ ScriptedImporter:
     uvTransform: {x: 44, y: 52}
   - name: tileset_21
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -960,7 +960,7 @@ ScriptedImporter:
     uvTransform: {x: 52, y: 52}
   - name: tileset_22
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -982,7 +982,7 @@ ScriptedImporter:
     uvTransform: {x: 60, y: 52}
   - name: tileset_23
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1004,7 +1004,7 @@ ScriptedImporter:
     uvTransform: {x: 68, y: 52}
   - name: tileset_24
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1026,7 +1026,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 44}
   - name: tileset_25
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1048,7 +1048,7 @@ ScriptedImporter:
     uvTransform: {x: 12, y: 44}
   - name: tileset_26
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1070,7 +1070,7 @@ ScriptedImporter:
     uvTransform: {x: 20, y: 44}
   - name: tileset_27
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1092,7 +1092,7 @@ ScriptedImporter:
     uvTransform: {x: 28, y: 44}
   - name: tileset_28
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1114,7 +1114,7 @@ ScriptedImporter:
     uvTransform: {x: 36, y: 44}
   - name: tileset_29
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1136,7 +1136,7 @@ ScriptedImporter:
     uvTransform: {x: 44, y: 44}
   - name: tileset_30
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1158,7 +1158,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 36}
   - name: tileset_31
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1180,7 +1180,7 @@ ScriptedImporter:
     uvTransform: {x: 12, y: 36}
   - name: tileset_32
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1202,7 +1202,7 @@ ScriptedImporter:
     uvTransform: {x: 20, y: 36}
   - name: tileset_33
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1224,7 +1224,7 @@ ScriptedImporter:
     uvTransform: {x: 28, y: 36}
   - name: tileset_34
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1246,7 +1246,7 @@ ScriptedImporter:
     uvTransform: {x: 44, y: 36}
   - name: tileset_35
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1268,7 +1268,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 28}
   - name: tileset_36
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1290,7 +1290,7 @@ ScriptedImporter:
     uvTransform: {x: 12, y: 28}
   - name: tileset_37
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1312,7 +1312,7 @@ ScriptedImporter:
     uvTransform: {x: 20, y: 28}
   - name: tileset_38
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1334,7 +1334,7 @@ ScriptedImporter:
     uvTransform: {x: 28, y: 28}
   - name: tileset_39
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1356,7 +1356,7 @@ ScriptedImporter:
     uvTransform: {x: 36, y: 28}
   - name: tileset_40
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1378,7 +1378,7 @@ ScriptedImporter:
     uvTransform: {x: 44, y: 28}
   - name: tileset_41
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1400,7 +1400,7 @@ ScriptedImporter:
     uvTransform: {x: 52, y: 28}
   - name: tileset_42
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1422,7 +1422,7 @@ ScriptedImporter:
     uvTransform: {x: 60, y: 28}
   - name: tileset_43
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1444,7 +1444,7 @@ ScriptedImporter:
     uvTransform: {x: 68, y: 28}
   - name: tileset_44
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1458,7 +1458,12 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -2, y: 2}
+      - {x: -2, y: -4}
+      - {x: 4, y: -4}
+      - {x: 4, y: 2}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1466,7 +1471,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 20}
   - name: tileset_45
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1480,7 +1485,12 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -4, y: 2}
+      - {x: -4, y: -4}
+      - {x: 4, y: -4}
+      - {x: 4, y: 2}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1488,7 +1498,7 @@ ScriptedImporter:
     uvTransform: {x: 12, y: 20}
   - name: tileset_46
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1502,7 +1512,12 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -4, y: 2}
+      - {x: -4, y: -4}
+      - {x: 2, y: -4}
+      - {x: 2, y: 2}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1510,7 +1525,7 @@ ScriptedImporter:
     uvTransform: {x: 20, y: 20}
   - name: tileset_47
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1524,7 +1539,14 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -4, y: 4}
+      - {x: -4, y: -4}
+      - {x: 2, y: -4}
+      - {x: 2, y: -2}
+      - {x: 4, y: -2}
+      - {x: 4, y: 4}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1532,7 +1554,7 @@ ScriptedImporter:
     uvTransform: {x: 28, y: 20}
   - name: tileset_48
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1546,7 +1568,12 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -4, y: 4}
+      - {x: -4, y: -2}
+      - {x: 4, y: -2}
+      - {x: 4, y: 4}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1554,7 +1581,7 @@ ScriptedImporter:
     uvTransform: {x: 36, y: 20}
   - name: tileset_49
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1568,7 +1595,14 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -4, y: 4}
+      - {x: -4, y: -2}
+      - {x: -2, y: -2}
+      - {x: -2, y: -4}
+      - {x: 4, y: -4}
+      - {x: 4, y: 4}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1576,7 +1610,7 @@ ScriptedImporter:
     uvTransform: {x: 44, y: 20}
   - name: tileset_50
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1590,7 +1624,12 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -2, y: 4}
+      - {x: -2, y: -4}
+      - {x: 4, y: -4}
+      - {x: 4, y: 4}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1598,7 +1637,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 12}
   - name: tileset_51
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1620,7 +1659,7 @@ ScriptedImporter:
     uvTransform: {x: 12, y: 12}
   - name: tileset_52
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1634,7 +1673,12 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -4, y: 4}
+      - {x: -4, y: -4}
+      - {x: 2, y: -4}
+      - {x: 2, y: 4}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1642,7 +1686,7 @@ ScriptedImporter:
     uvTransform: {x: 20, y: 12}
   - name: tileset_53
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1656,7 +1700,12 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -4, y: 4}
+      - {x: -4, y: -4}
+      - {x: 2, y: -4}
+      - {x: 2, y: 4}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1664,7 +1713,7 @@ ScriptedImporter:
     uvTransform: {x: 28, y: 12}
   - name: tileset_54
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1686,7 +1735,7 @@ ScriptedImporter:
     uvTransform: {x: 36, y: 12}
   - name: tileset_55
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1700,7 +1749,12 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -2, y: 4}
+      - {x: -2, y: -4}
+      - {x: 4, y: -4}
+      - {x: 4, y: 4}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1708,7 +1762,7 @@ ScriptedImporter:
     uvTransform: {x: 44, y: 12}
   - name: tileset_56
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1722,7 +1776,12 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -2, y: 4}
+      - {x: -2, y: -2}
+      - {x: 4, y: -2}
+      - {x: 4, y: 4}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1730,7 +1789,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: tileset_57
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1744,7 +1803,12 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -4, y: 4}
+      - {x: -4, y: -2}
+      - {x: 4, y: -2}
+      - {x: 4, y: 4}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1752,7 +1816,7 @@ ScriptedImporter:
     uvTransform: {x: 12, y: 4}
   - name: tileset_58
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1766,7 +1830,12 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -4, y: 4}
+      - {x: -4, y: -2}
+      - {x: 2, y: -2}
+      - {x: 2, y: 4}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1774,7 +1843,7 @@ ScriptedImporter:
     uvTransform: {x: 20, y: 4}
   - name: tileset_59
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1788,7 +1857,14 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: 2, y: 4}
+      - {x: -4, y: 4}
+      - {x: -4, y: -4}
+      - {x: 4, y: -4}
+      - {x: 4, y: 2}
+      - {x: 2, y: 2}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1796,7 +1872,7 @@ ScriptedImporter:
     uvTransform: {x: 28, y: 4}
   - name: tileset_60
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1810,7 +1886,12 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -4, y: 2}
+      - {x: -4, y: -4}
+      - {x: 4, y: -4}
+      - {x: 4, y: 2}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1818,7 +1899,7 @@ ScriptedImporter:
     uvTransform: {x: 36, y: 4}
   - name: tileset_61
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1832,7 +1913,14 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -2, y: 4}
+      - {x: -2, y: 2}
+      - {x: -4, y: 2}
+      - {x: -4, y: -4}
+      - {x: 4, y: -4}
+      - {x: 4, y: 4}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1840,7 +1928,7 @@ ScriptedImporter:
     uvTransform: {x: 44, y: 4}
   - name: tileset_62
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -1854,7 +1942,12 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -2, y: 2}
+      - {x: -2, y: -2}
+      - {x: 4, y: -2}
+      - {x: 4, y: 2}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1876,7 +1969,12 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -4, y: 2}
+      - {x: -4, y: -2}
+      - {x: 4, y: -2}
+      - {x: 4, y: 2}
     indices: 
     edges: []
     tessellationDetail: 0
@@ -1898,7 +1996,12 @@ ScriptedImporter:
     spriteBone: []
     spriteOutline: []
     vertices: []
-    spritePhysicsOutline: []
+    spritePhysicsOutline:
+    - outline:
+      - {x: -4, y: 2}
+      - {x: -4, y: -2}
+      - {x: 2, y: -2}
+      - {x: 2, y: 2}
     indices: 
     edges: []
     tessellationDetail: 0

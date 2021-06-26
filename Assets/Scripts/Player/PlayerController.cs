@@ -37,6 +37,22 @@ public class PlayerController : MonoBehaviour
         defaultScale = transform.localScale;
     }
 
+    public void SetExternallyHorizontalInput(float value)
+    {
+        if (!controlsLocked)
+        {
+            horizontalInput = value;
+        }
+    }
+
+    public void SetExternallyJumpInput(bool value)
+    {
+        if (!controlsLocked)
+        {
+            jumpInput = value;
+        }
+    }
+
     private float horizontalInput;
     private bool jumpInput;
     private bool jumpRemember;
@@ -44,11 +60,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!controlsLocked)
         {
-            horizontalInput = Input.GetAxisRaw("Horizontal");
-
-            horizontalInput = Mathf.Clamp(horizontalInput, -1, 1);
-
-            jumpInput = Input.GetKeyDown(KeyCode.Space);
+            //horizontalInput = Input.GetAxisRaw("Horizontal");
+            //jumpInput = Input.GetKeyDown(KeyCode.Space);
 
             if (jumpInput && canJump)
             {
@@ -134,8 +147,9 @@ public class PlayerController : MonoBehaviour
         controlsLocked = locked;
     }
 
-    public void Kill() {
-        
+    public void Kill()
+    {
+
     }
 
     #region Physics Functions
